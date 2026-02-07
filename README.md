@@ -1,15 +1,24 @@
-Required
+## Luau Goto Stripper
 
-NET 9.0
+**Target Framework:** NET 9.0
 
-to run the program use
+This tool removes `goto` statements and label blocks from **luadec-generated Luau/Lua files**, producing cleaner and more readable output.
 
-dotnet run --project .\LuauGotoStripper 
+### Running the program
 
-simple
+```bash
+dotnet run --project .\LuauGotoStripper
+```
 
-Before:
+### Command
 
+```
+/stripgoto
+```
+
+### Before:
+
+```lua
 local a = 1
 
 if a == 1 then goto label_53 end -- goto label_53
@@ -17,9 +26,11 @@ print("this stays")
 
 ::label_53:: -- ::label_53::
 goto label_12 -- goto label_12
+```
 
-After
+### After:
 
+```lua
 local a = 1
 
 if a == 1 then end
@@ -27,5 +38,4 @@ print("this stays")
 
 
 print("done")
-
-this removes goto and label from luadec generated files command is /stripgoto alr thats all thanks
+```
