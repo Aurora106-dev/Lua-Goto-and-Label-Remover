@@ -35,7 +35,4 @@ local a = 1
 
 if a == 1 then end
 print("this stays")
-
-
-print("done")
 ```
